@@ -31,7 +31,7 @@
             <input type="text"
                    class="form-control"
                    id="tit"
-                   name="titel"
+                   name="title"
                    placeholder="Task Title">
         </div>
 
@@ -49,6 +49,34 @@
         </button>
 
     </form>
+   @if ($errors->any())
+
+<div class="modal fade" id="errorModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Validation Error</h5>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@endif
 
 </div>
 
@@ -72,7 +100,7 @@
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
 
-            <td>{{ $task->titel }}</td>
+            <td>{{ $task->title }}</td>
 
             <td>{{ $task->description }}</td>
 
@@ -102,6 +130,17 @@
     </table>
 
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+@if ($errors->any())
+<script>
+    var errorModal = new bootstrap.Modal(
+        document.getElementById('errorModal')
+    );
+
+    errorModal.show();
+</script>
+@endif
 
 </body>
 </html>

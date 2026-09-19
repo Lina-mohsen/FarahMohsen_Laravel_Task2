@@ -22,7 +22,7 @@
         <div class="card-body">
 
             <h5>Title</h5>
-            <p>{{ $task->titel }}</p>
+            <p>{{ $task->title }}</p>
 
             <h5>Description</h5>
             <p>{{ $task->description }}</p>

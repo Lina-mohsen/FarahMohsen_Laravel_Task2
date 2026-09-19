@@ -31,9 +31,9 @@
                     <label class="form-label">Title</label>
 
                     <input type="text"
-                           name="titel"
+                           name="title"
                            class="form-control"
-                           value="{{ $task->titel }}">
+                           value="{{ $task->title }}">
                 </div>
 
                 <div class="mb-3">
